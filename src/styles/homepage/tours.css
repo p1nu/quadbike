@@ -1,0 +1,128 @@
+
+.tours {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 5rem 0;
+}
+
+.tour-title {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.tours-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.tour-card {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: calc(33.33% - 2rem);
+  height: 100%;
+  /* border: 1px solid red; */
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.tour-card:hover {
+  transform: scale(1.05);
+}
+
+.tour-info {
+  padding: 0 1rem 1rem;
+  margin-top: -0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tour-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tour-card-title {
+  font-size: var(--size-2xl);
+}
+
+.tour-card-price {
+  font-size: var(--size-xl);
+  color: #0f957a;
+}
+
+.tour-card-btn {
+  /* background-color: blue; */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.read-more {
+  background-color: rgb(59, 84, 183);
+}
+
+.book-now {
+  background-color: #0f957a;
+}
+
+.tour-card-btn:hover {
+  opacity: 0.8;
+}
+
+.tour-card-btn-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.tour-card-discount {
+  position: relative;
+  top: -1.75rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0f957a96;
+  color: rgb(0, 0, 0);
+  font-size: var(--size-xl);
+  text-align: center;
+}
+
+.discount-none {
+  opacity: 0;
+}
+
+.tour-top {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

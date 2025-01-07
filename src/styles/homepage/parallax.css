@@ -1,0 +1,65 @@
+.parallax-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* border: 1px solid red; */
+}
+
+.parallax-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  text-align: center;
+  color: white;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.sec {
+  height: 100vh;
+  background-color: #003329;
+  position: relative;
+}
+
+.parallax-desc {
+  position: absolute;
+  top: -10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  /* font-size: 2rem; */
+  text-align: center;
+  color: white;
+  /* background-color: #003329; */
+  width: 100vw;
+  /* border: 1px solid red; */
+}
+
+.parallax-desc p {
+  font-size: 1.5rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+#plant {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.parallax-text {
+  background-color: #003329;
+  padding: 2rem;
+  height: 150vh;
+  position: relative;
+}
