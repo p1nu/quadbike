@@ -42,3 +42,31 @@
   color: #999;
   font-style: italic;
 }
+
+@media screen and (max-width: 1024px) {
+  .review-card {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .review-card {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .review-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .review-card p {
+    font-size: 0.875rem;
+  }
+
+  .review-card span {
+    font-size: 0.75rem;
+  }
+}
