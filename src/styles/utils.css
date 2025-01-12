@@ -94,11 +94,11 @@ p {
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   border: 1px solid red;
   /* scrollbar-width: 0; */
 }

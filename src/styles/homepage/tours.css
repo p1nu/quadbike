@@ -145,8 +145,8 @@
 
 @media screen and (max-width: 480px) {
   .tour-card {
-    width: 80%;
-    max-width: 80%;;
+    width: 100%;
+    max-width: 100%;;
   }
 
   .tour-info {
