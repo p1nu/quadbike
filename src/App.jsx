@@ -6,6 +6,8 @@ import Topbar from "./pages/components/Topbar";
 import Footer from "./pages/components/Footer";
 import {Homepage} from "./pages/Homepage";
 import Tours from "./pages/Tours";
+import Gallery from "./pages/Gallery";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="/tours" element={<Tours />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/about-us" element={<About />} />
             </Routes>
           </main>
           <Footer />

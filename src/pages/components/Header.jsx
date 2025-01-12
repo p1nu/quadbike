@@ -6,24 +6,11 @@ import DOMPurify from "dompurify";
 import "../../styles/components/header.css";
 
 const Header = ({ title, description, background }) => {
-  const [loading, setLoading] = useState(true);
   const isActive = false;
   const titleRef = useRef();
   const descRef = useRef();
   useIntersectionObserver(titleRef, { threshold: 0 });
   useIntersectionObserver(descRef, { threshold: 0 });
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <Loader />;
-  }
 
   return (
     <Box className="header__section body">
@@ -33,13 +20,13 @@ const Header = ({ title, description, background }) => {
       <div className="header__container__section container">
         <h1
           ref={titleRef}
-          className="header__title__section title-sm a-right"
+          className="header__title__section title-sm a-up"
         >
           {title}
         </h1>
         <div
           ref={descRef}
-          className="header__description__section a-right"
+          className="header__description__section a-up"
           dangerouslySetInnerHTML={{
             __html: DOMPurify.sanitize(description),
           }}

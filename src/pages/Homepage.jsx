@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Loader from "./components/Loader";
-import ChooseUs from "./components/ChooseUs";
 import { Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -9,6 +8,7 @@ import "../styles/homepage/parallax.css";
 import "../styles/homepage/tours.css";
 import "../styles/homepage/customer.css";
 import "../styles/homepage/contact.css";
+import '../styles/components/chooseus.css'
 import tripadvisorLogo from "/tripadvisor.svg";
 import useIntersectionObserver from "./components/useIntersectionObserver";
 import LabalSlider from "./components/LabalSlider";
@@ -40,7 +40,7 @@ export const Homepage = () => {
     <Box sx={{ overflowX: "hidden", width: "100vw" }}>
       <Slider sliderRef={sliderRef} />
       <Welcome sliderRef={sliderRef} />
-      <ChooseUs />
+      <ChooseUs backgroundColor={"#003329"} titleColor={"#fff"}/>
       <ToursSection />
       <CustomerReviews />
       <Contact />
@@ -287,6 +287,52 @@ const Welcome = ({ sliderRef }) => {
     </Box>
   );
 };
+
+//Choose us section
+export const ChooseUs = ({backgroundColor, titleColor}) => {
+  const titleRef = React.useRef(null)
+  const cardRef = React.useRef(null)
+  useIntersectionObserver(titleRef, { threshold: 0.5 })
+  useIntersectionObserver(cardRef, { threshold: 0.5 })
+
+  return (
+    <Box className='us-container' sx={{backgroundColor: backgroundColor}}>
+      <div className="container us">
+        <h1 ref={titleRef} className="title us-title a-up" style={{color: titleColor}}>Why choose us?</h1>
+        <div ref={cardRef} className="card-container a-up">
+          <div className="us-card">
+            <div className="us-logo">
+              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
+            </div>
+            <h2 className="card-title title">Card Title</h2>
+            <p className="card-desc">Card Description</p>
+          </div>
+          <div className="us-card">
+            <div className="us-logo">
+              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
+            </div>
+            <h2 className="card-title title">Card Title</h2>
+            <p className="card-desc">Card Description</p>
+          </div>
+          <div className="us-card">
+            <div className="us-logo">
+              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
+            </div>
+            <h2 className="card-title title">Card Title</h2>
+            <p className="card-desc">Card Description</p>
+          </div>
+          <div className="us-card">
+            <div className="us-logo">
+              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
+            </div>
+            <h2 className="card-title title">Card Title</h2>
+            <p className="card-desc">Card Description</p>
+          </div>
+        </div>
+      </div>
+    </Box>
+  )
+}
 
 //Slider section
 const Slider = ({ sliderRef }) => {
