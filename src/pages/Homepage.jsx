@@ -10,6 +10,7 @@ import "../styles/homepage/tours.css";
 import "../styles/homepage/customer.css";
 import "../styles/homepage/contact.css";
 import tripadvisorLogo from "/tripadvisor.svg";
+import useIntersectionObserver from "./components/useIntersectionObserver";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapMarkerAlt,
@@ -48,11 +49,17 @@ const Homepage = () => {
 
 //Contact section
 const Contact = () => {
+  const titleRef = useRef(null);
+  const infoRef = useRef(null);
+
+  useIntersectionObserver(titleRef, { threshold: 0.5 });
+  useIntersectionObserver(infoRef, { threshold: 0.5 });
+
   return (
     <Box className="contact">
       <div className="container">
         <div className="contact-content">
-          <div className="contact-info">
+          <div ref={titleRef} className="contact-info a-up">
             <h1 className="title">Contact Us</h1>
             <p>
               <FontAwesomeIcon icon={faMapMarkerAlt} />{" "}
@@ -68,7 +75,7 @@ const Contact = () => {
               (234) 567-890
             </p>
           </div>
-          <div className="contact-logo">
+          <div ref={infoRef} className="contact-logo a-up">
             <img src={tripadvisorLogo} alt="Tripadvisor Logo" />
           </div>
         </div>
@@ -79,11 +86,17 @@ const Contact = () => {
 
 //Customer reviews section
 const CustomerReviews = () => {
+  const titleRef = useRef(null);
+  const cardRef = useRef(null);
+
+  useIntersectionObserver(titleRef, { threshold: 0.5 });
+  useIntersectionObserver(cardRef, { threshold: 0.5 });
+
   return (
     <Box className="customer-reviews">
       <div className="container">
-        <h1 className="title">Customer Reviews</h1>
-        <div className="reviews-container">
+        <h1 ref={titleRef} className="title a-up">Customer Reviews</h1>
+        <div ref={cardRef} className="reviews-container a-up">
           <div className="review-card">
             <p>
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
@@ -114,6 +127,11 @@ const CustomerReviews = () => {
 //Tours section
 const Tours = () => {
   const [tours, setTours] = useState([]);
+  const titleRef = useRef(null);
+  const cardRef = useRef(null);
+
+  useIntersectionObserver(titleRef, { threshold: 0.5 });
+  useIntersectionObserver(cardRef, { threshold: 0.5 });
 
   useEffect(() => {
     setTours(mockTours);
@@ -122,8 +140,8 @@ const Tours = () => {
   return (
     <Box className="tours">
       <div className="container ">
-        <h1 className="title tour-title">Our Tours</h1>
-        <div className="tours-container">
+        <h1 ref={titleRef} className="title tour-title a-up">Our Tours</h1>
+        <div ref={cardRef} className="tours-container a-up">
           {tours.map((tour) => (
             <div key={tour.id} className="tour-card">
               <div className="tour-top">

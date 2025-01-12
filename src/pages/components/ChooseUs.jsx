@@ -1,13 +1,19 @@
 import React from 'react'
 import '../../styles/components/chooseus.css'
 import { Box } from '@mui/material'
+import useIntersectionObserver from './useIntersectionObserver'
 
 const ChooseUs = () => {
+  const titleRef = React.useRef(null)
+  const cardRef = React.useRef(null)
+  useIntersectionObserver(titleRef, { threshold: 0.5 })
+  useIntersectionObserver(cardRef, { threshold: 0.5 })
+
   return (
     <Box className='us-container'>
       <div className="container us">
-        <h1 className="title us-title">Why choose us?</h1>
-        <div className="card-container">
+        <h1 ref={titleRef} className="title us-title a-up">Why choose us?</h1>
+        <div ref={cardRef} className="card-container a-up">
           <div className="us-card">
             <div className="us-logo">
               <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />

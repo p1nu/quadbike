@@ -99,10 +99,9 @@ p {
   margin-right: auto;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* scrollbar-width: 0; */
 }
-
 
 
 @media(prefers-reduced-motion) {

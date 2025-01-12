@@ -41,6 +41,7 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   /* background-color: var(--clr-secendary); */
+  background-color: #f9f9f9;
 }
 
 .app-container {
@@ -51,7 +52,7 @@ body {
   overflow: hidden;
 }
 
-.content {
+.main-content {
   flex: 1;
   /* width: 100vw; */
 }
