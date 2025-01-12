@@ -11,6 +11,7 @@ import "../styles/homepage/customer.css";
 import "../styles/homepage/contact.css";
 import tripadvisorLogo from "/tripadvisor.svg";
 import useIntersectionObserver from "./components/useIntersectionObserver";
+import LabalSlider from "./components/LabalSlider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapMarkerAlt,
@@ -95,7 +96,9 @@ const CustomerReviews = () => {
   return (
     <Box className="customer-reviews">
       <div className="container">
-        <h1 ref={titleRef} className="title a-up">Customer Reviews</h1>
+        <h1 ref={titleRef} className="title a-up">
+          Customer Reviews
+        </h1>
         <div ref={cardRef} className="reviews-container a-up">
           <div className="review-card">
             <p>
@@ -140,7 +143,9 @@ const Tours = () => {
   return (
     <Box className="tours">
       <div className="container ">
-        <h1 ref={titleRef} className="title tour-title a-up">Our Tours</h1>
+        <h1 ref={titleRef} className="title tour-title a-up">
+          Our Tours
+        </h1>
         <div ref={cardRef} className="tours-container a-up">
           {tours.map((tour) => (
             <div key={tour.id} className="tour-card">
@@ -303,6 +308,14 @@ const Slider = ({ sliderRef }) => {
                 alt={image.name}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
+              <div className="carousel-legend">
+                <LabalSlider
+                  companyId={image.innerWidth}
+                  index={index}
+                  title={image.name}
+                  desc={image.description}
+                />
+              </div>
             </div>
           ))}
         </Carousel>
