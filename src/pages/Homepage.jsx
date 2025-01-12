@@ -157,7 +157,7 @@ const Welcome = ({ sliderRef }) => {
 
       if (window.innerWidth < 768) {
 
-        maxScroll = 100;
+        return;
       } else {
         maxScroll = 300;
       }
