@@ -131,10 +131,31 @@
   .tours-container {
     display: flex;
     flex-direction: column;
+    padding: 0;
   }
 
   .tour-card {
-    width: 368px;
+    width: 350px;
   }
   
+}
+
+@media screen and (max-width: 480px) {
+  .tour-card {
+    width: 80%;
+    max-width: 80%;;
+  }
+
+  .tour-info {
+    padding: 0.5rem;
+  }
+
+  .tour-card-title,
+  .tour-card-price {
+    font-size: var(--size-lg);
+  }
+
+  .tour-card-btn {
+    padding: 0.5rem;
+  }
 }
