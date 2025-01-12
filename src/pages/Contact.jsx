@@ -1,8 +1,22 @@
 import React from 'react'
 import { ContactSection } from './Homepage'
+import Loader from './components/Loader'
+import useIntersectionObserver from './components/useIntersectionObserver'
 import '../styles/components/contact.css'
 
 const Contact = () => {
+  const [loading, setLoading] = React.useState(true)
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+  }, [])
+
+  if (loading) {
+    return <Loader />
+  }
+
   return (
     <div>
       <ContactSection background={"https://picsum.photos/id/11/2500/1667.jpg"}/>
@@ -13,12 +27,20 @@ const Contact = () => {
 
 //Contact Form Section Component
 export const ContactForm = () => {
+  const titleRef = React.useRef(null)
+  const contentRef = React.useRef(null)
+  const wrapRef = React.useRef(null)
+
+  useIntersectionObserver(titleRef, { threshold: 0.5 });
+  useIntersectionObserver(contentRef, { threshold: 0.5 });
+  useIntersectionObserver(wrapRef, { threshold: 0.5 });
+
   return (
     <section className="contact-form">
       <div className="container">
-        <div className="contact-form__wrapper">
-          <h2 className="contact-form__title title">Contact Us</h2>
-          <div className="contact-form__content">
+        <div ref={wrapRef} className="contact-form__wrapper a-up">
+          <h2 ref={titleRef} className="contact-form__title title a-up">Contact Us</h2>
+          <div ref={contentRef} className="contact-form__content a-up">
             <form action="#" className="contact-form__form">
               <div className="contact-form__group">
                 <label htmlFor="name" className="contact-form__label">Name</label>
