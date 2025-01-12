@@ -6,7 +6,7 @@ import ImagesCard from './components/ImagesCard'
 import useIntersectionObserver from './components/useIntersectionObserver'
 import '../styles/components/gallery.css'
 
-const Gallery = () => {
+export const Gallery = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Content = () => {
   );
 }
 
-const mockImagesData = [
+export const mockImagesData = [
   {
     id: 1,
     url: "https://picsum.photos/id/1011/800/600",
@@ -138,5 +138,3 @@ const mockImagesData = [
     description: "Adventure 15",
   },
 ]
-
-export default Gallery

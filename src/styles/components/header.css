@@ -9,6 +9,17 @@
   align-items: center;
 }
 
+.header__tour {
+  background-size: cover;
+  /* border: 1px solid red; */
+  background-repeat: no-repeat;
+  display: flex;
+  background-position: center;
+  height: 40vh;
+  justify-content: center;
+  align-items: end;
+}
+
 .header__content {
   display: flex;
   flex-direction: column;
@@ -95,6 +106,7 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
 
 
 

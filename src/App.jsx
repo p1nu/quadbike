@@ -6,9 +6,10 @@ import Topbar from "./pages/components/Topbar";
 import Footer from "./pages/components/Footer";
 import {Homepage} from "./pages/Homepage";
 import Tours from "./pages/Tours";
-import Gallery from "./pages/Gallery";
+import {Gallery} from "./pages/Gallery";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import TourInfo from "./pages/TourInfo";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/about-us" element={<About />} />
               <Route path="/contact-us" element={<Contact />} />
+              <Route path="/tours/:slug" element={<TourInfo />} />
             </Routes>
           </main>
           <Footer />

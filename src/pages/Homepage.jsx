@@ -18,6 +18,7 @@ import {
   faEnvelope,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export const Homepage = () => {
   const [loading, setLoading] = useState(true);
@@ -131,10 +132,11 @@ const CustomerReviews = () => {
 };
 
 //Tours section
-export const ToursSection = () => {
+export const ToursSection = ({tourId}) => {
   const [tours, setTours] = useState([]);
   const titleRef = useRef(null);
   const cardRef = useRef(null);
+  const navigate = useNavigate();
 
   useIntersectionObserver(titleRef, { threshold: 0.5 });
   useIntersectionObserver(cardRef, { threshold: 0.5 });
@@ -143,14 +145,25 @@ export const ToursSection = () => {
     setTours(mockTours);
   }, []);
 
+  const generateSlug = (name) => {
+    return name.toLowerCase().replace(/\s+/g, '-');
+  };
+
+  const handleNavigate = (name) => {
+    const slug = generateSlug(name);
+    navigate(`/tours/${slug}`);
+  };
+
+  const filteredTours = tourId ? tours.filter((tour) => tour.id !== tourId) : tours;
+
   return (
     <Box className="tours">
       <div className="container">
         <h1 ref={titleRef} className="title tour-title a-up">
-          Our Tours
+          {tourId ? "Other Tours" : "Our Tours"}
         </h1>
         <div ref={cardRef} className="tours-container a-up">
-          {tours.map((tour) => {
+          {filteredTours.map((tour) => {
             const discountedPrice =
               tour.price - (tour.price * tour.discount) / 100;
             return (
@@ -181,10 +194,10 @@ export const ToursSection = () => {
                   </span>
                   <p>{tour.description}</p>
                   <div className="tour-card-btn-section">
-                    <button className="tour-card-btn read-more">
+                    <button className="tour-card-btn read-more" onClick={() => handleNavigate(tour.name)}>
                       Read More
                     </button>
-                    <button className="tour-card-btn book-now">Book Now</button>
+                    <button className="tour-card-btn book-now" onClick={() => handleNavigate(tour.name)} >Book Now</button>
                   </div>
                 </div>
               </div>
