@@ -53,6 +53,7 @@ body {
 
 .content {
   flex: 1;
+  /* width: 100vw; */
 }
 
 img,

@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -10,6 +9,7 @@
   width: 100%;
   z-index: 999999;
   height: 60px;
+  /* border: 1px solid red; */
 }
 
 .topbar-container {
@@ -32,7 +32,7 @@
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 40px;
 }
 
 nav ul li {
@@ -40,15 +40,34 @@ nav ul li {
 }
 
 nav ul li a {
-  color: rgb(0, 0, 0);
+  color: #333;
   text-decoration: none;
   transition: 0.3s;
 }
 
 nav ul li a:hover {
-  opacity: 0.5;
+  color: #0f957a;
 }
 
 .main-content {
   margin-top: 60px; /* Add a top margin equal to the height of the topbar */
+}
+
+.header__bars {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .header__bars {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+  }
 }

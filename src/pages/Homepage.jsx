@@ -31,7 +31,7 @@ const Homepage = () => {
   }
 
   return (
-    <Box>
+    <Box sx={{ overflowX: "hidden", width: "100vw" }}>
       <Slider sliderRef={sliderRef} />
       <Welcome sliderRef={sliderRef} />
       <ChooseUs />
@@ -152,7 +152,16 @@ const Welcome = ({ sliderRef }) => {
   useEffect(() => {
     const handleScroll = () => {
       let value = window.scrollY - sliderRef.current.offsetHeight; // Subtract the height of the slider
-      const maxScroll = 300;
+
+      let maxScroll;
+
+      if (window.innerWidth < 768) {
+
+        maxScroll = 100;
+      } else {
+        maxScroll = 300;
+      }
+
 
       if (sliderRef.current && value > 0) {
         value = Math.min(value, maxScroll); // Limit the scroll value to a maximum of 500 pixels
