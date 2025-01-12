@@ -91,8 +91,8 @@
 
   .contact-info,
   .contact-logo {
-    /* width: 90%; */
-    /* text-align: center; */
+    width: 90%;
+    text-align: center;
   }
 
   .contact-info p {

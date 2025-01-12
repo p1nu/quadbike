@@ -9,9 +9,13 @@ import "../styles/homepage/parallax.css";
 import "../styles/homepage/tours.css";
 import "../styles/homepage/customer.css";
 import "../styles/homepage/contact.css";
-import tripadvisorLogo from '/tripadvisor.svg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import tripadvisorLogo from "/tripadvisor.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMapMarkerAlt,
+  faEnvelope,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Homepage = () => {
   const [loading, setLoading] = useState(true);
@@ -49,10 +53,20 @@ const Contact = () => {
       <div className="container">
         <div className="contact-content">
           <div className="contact-info">
-        <h1 className="title">Contact Us</h1>
-            <p><FontAwesomeIcon icon={faMapMarkerAlt} /> <strong>Office Address:</strong> 123 Quad Bike St, Adventure City, AC 12345</p>
-            <p><FontAwesomeIcon icon={faEnvelope} /> <strong>Email:</strong> info@quadbike.com</p>
-            <p><FontAwesomeIcon icon={faPhone} /> <strong>Phone:</strong> +1 (234) 567-890</p>
+            <h1 className="title">Contact Us</h1>
+            <p>
+              <FontAwesomeIcon icon={faMapMarkerAlt} />{" "}
+              <strong>Office Address:</strong> 123 Quad Bike St, Adventure City,
+              AC 12345
+            </p>
+            <p>
+              <FontAwesomeIcon icon={faEnvelope} /> <strong>Email:</strong>{" "}
+              info@quadbike.com
+            </p>
+            <p>
+              <FontAwesomeIcon icon={faPhone} /> <strong>Phone:</strong> +1
+              (234) 567-890
+            </p>
           </div>
           <div className="contact-logo">
             <img src={tripadvisorLogo} alt="Tripadvisor Logo" />
@@ -61,7 +75,7 @@ const Contact = () => {
       </div>
     </Box>
   );
-}
+};
 
 //Customer reviews section
 const CustomerReviews = () => {
@@ -72,8 +86,8 @@ const CustomerReviews = () => {
         <div className="reviews-container">
           <div className="review-card">
             <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."
             </p>
             <span>- John Doe</span>
           </div>
@@ -95,7 +109,7 @@ const CustomerReviews = () => {
       </div>
     </Box>
   );
-}
+};
 
 //Tours section
 const Tours = () => {
@@ -114,11 +128,15 @@ const Tours = () => {
             <div key={tour.id} className="tour-card">
               <div className="tour-top">
                 <img src={tour.src} alt={tour.name} />
-                  <div 
-                    className={tour.discount ? "tour-card-discount" : "tour-card-discount discount-none"}
-                  >
-                    {tour.discount} OFF
-                  </div>
+                <div
+                  className={
+                    tour.discount
+                      ? "tour-card-discount"
+                      : "tour-card-discount discount-none"
+                  }
+                >
+                  {tour.discount} OFF
+                </div>
               </div>
               <div className="tour-info">
                 <span className="tour-card-header">
@@ -156,12 +174,10 @@ const Welcome = ({ sliderRef }) => {
       let maxScroll;
 
       if (window.innerWidth < 768) {
-
         return;
       } else {
         maxScroll = 300;
       }
-
 
       if (sliderRef.current && value > 0) {
         value = Math.min(value, maxScroll); // Limit the scroll value to a maximum of 500 pixels
@@ -225,14 +241,16 @@ const Welcome = ({ sliderRef }) => {
       <div className="parallax-desc" ref={descRef}>
         <img id="plant" src="plant.png" alt="plant" />
         <div className="parallax-text">
-          <h2 className="container title">We are Village bike quad</h2>
-          <p className="container">
-            Whether you want a relaxing with our Sunset tour, or an Village tours
-            & killing fields or the Half-day tour, or the Happy-full-day tour
-            with the family ride, we have a package to suit for everyone. So
-            reserve yourself a place on one of our tours or contact us for more
-            information now.
-          </p>
+          <div className="container">
+            <h2 className=" title">We are Village bike quad</h2>
+            <p className="">
+              Whether you want a relaxing with our Sunset tour, or an Village
+              tours & killing fields or the Half-day tour, or the Happy-full-day
+              tour with the family ride, we have a package to suit for everyone.
+              So reserve yourself a place on one of our tours or contact us for
+              more information now.
+            </p>
+          </div>
         </div>
       </div>
     </Box>
@@ -243,51 +261,8 @@ const Welcome = ({ sliderRef }) => {
 const Slider = ({ sliderRef }) => {
   const [images, setImages] = useState([]);
 
-  // Mock data for images
-  const mockImages = [
-    {
-      id: 1,
-      name: "Image 1",
-      src: "https://via.placeholder.com/800x400",
-      banner_company_id: 1,
-      slider_title: "Title 1",
-      slider_desc: "Description 1",
-    },
-    {
-      id: 2,
-      name: "Image 2",
-      src: "https://via.placeholder.com/800x400",
-      banner_company_id: 2,
-      slider_title: "Title 2",
-      slider_desc: "Description 2",
-    },
-    {
-      id: 3,
-      name: "Image 3",
-      src: "https://via.placeholder.com/800x400",
-      banner_company_id: 3,
-      slider_title: "Title 3",
-      slider_desc: "Description 3",
-    },
-    {
-      id: 4,
-      name: "Image 4",
-      src: "https://via.placeholder.com/800x400",
-      banner_company_id: 4,
-      slider_title: "Title 4",
-      slider_desc: "Description 4",
-    },
-    {
-      id: 5,
-      name: "Image 5",
-      src: "https://via.placeholder.com/800x400",
-      banner_company_id: 5,
-      slider_title: "Title 5",
-      slider_desc: "Description 5",
-    },
-  ];
   useEffect(() => {
-    setImages(mockImages);
+    setImages(mockTours);
   }, []);
 
   return (
@@ -325,7 +300,7 @@ const mockTours = [
   {
     id: 1,
     name: "Tour 1",
-    src: "https://via.placeholder.com/800x400",
+    src: "https://picsum.photos/id/11/2500/1667.jpg",
     description: "Description 1",
     price: "$100",
     discount: "",
@@ -333,7 +308,7 @@ const mockTours = [
   {
     id: 2,
     name: "Tour 2",
-    src: "https://via.placeholder.com/800x400",
+    src: "https://picsum.photos/id/16/2500/1667.jpg",
     description: "Description 2",
     price: "$150",
     discount: "15%",
@@ -341,7 +316,7 @@ const mockTours = [
   {
     id: 3,
     name: "Tour 3",
-    src: "https://via.placeholder.com/800x400",
+    src: "https://picsum.photos/id/12/2500/1667.jpg",
     description: "Description 3",
     price: "$200",
     discount: "20%",
@@ -349,7 +324,7 @@ const mockTours = [
   {
     id: 4,
     name: "Tour 4",
-    src: "https://via.placeholder.com/800x400",
+    src: "https://picsum.photos/id/15/2500/1667.jpg",
     description: "Description 4",
     price: "$250",
     discount: "25%",
@@ -357,7 +332,7 @@ const mockTours = [
   {
     id: 5,
     name: "Tour 5",
-    src: "https://via.placeholder.com/800x400",
+    src: "https://picsum.photos/id/28/4928/3264.jpg",
     description: "Description 5",
     price: "$300",
     discount: "30%",

@@ -10,28 +10,28 @@ const ChooseUs = () => {
         <div className="card-container">
           <div className="us-card">
             <div className="us-logo">
-              <img src="https://via.placeholder.com/800x400" alt="card-logo" />
+              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
             </div>
             <h2 className="card-title title">Card Title</h2>
             <p className="card-desc">Card Description</p>
           </div>
           <div className="us-card">
             <div className="us-logo">
-              <img src="https://via.placeholder.com/800x400" alt="card-logo" />
+              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
             </div>
             <h2 className="card-title title">Card Title</h2>
             <p className="card-desc">Card Description</p>
           </div>
           <div className="us-card">
             <div className="us-logo">
-              <img src="https://via.placeholder.com/800x400" alt="card-logo" />
+              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
             </div>
             <h2 className="card-title title">Card Title</h2>
             <p className="card-desc">Card Description</p>
           </div>
           <div className="us-card">
             <div className="us-logo">
-              <img src="https://via.placeholder.com/800x400" alt="card-logo" />
+              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
             </div>
             <h2 className="card-title title">Card Title</h2>
             <p className="card-desc">Card Description</p>
