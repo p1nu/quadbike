@@ -19,7 +19,7 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Homepage = () => {
+export const Homepage = () => {
   const [loading, setLoading] = useState(true);
   const sliderRef = useRef(null);
 
@@ -41,7 +41,7 @@ const Homepage = () => {
       <Slider sliderRef={sliderRef} />
       <Welcome sliderRef={sliderRef} />
       <ChooseUs />
-      <Tours />
+      <ToursSection />
       <CustomerReviews />
       <Contact />
     </Box>
@@ -128,7 +128,7 @@ const CustomerReviews = () => {
 };
 
 //Tours section
-const Tours = () => {
+export const ToursSection = () => {
   const [tours, setTours] = useState([]);
   const titleRef = useRef(null);
   const cardRef = useRef(null);
@@ -142,38 +142,46 @@ const Tours = () => {
 
   return (
     <Box className="tours">
-      <div className="container ">
+      <div className="container">
         <h1 ref={titleRef} className="title tour-title a-up">
           Our Tours
         </h1>
         <div ref={cardRef} className="tours-container a-up">
-          {tours.map((tour) => (
-            <div key={tour.id} className="tour-card">
-              <div className="tour-top">
-                <img src={tour.src} alt={tour.name} />
-                <div
-                  className={
-                    tour.discount
-                      ? "tour-card-discount"
-                      : "tour-card-discount discount-none"
-                  }
-                >
-                  {tour.discount} OFF
+          {tours.map((tour) => {
+            const discountedPrice = tour.price - (tour.price * tour.discount) / 100;
+            return (
+              <div key={tour.id} className="tour-card">
+                <div className="tour-top">
+                  <img src={tour.src} alt={tour.name} />
+                  <div
+                    className={
+                      tour.discount
+                        ? "tour-card-discount"
+                        : "tour-card-discount discount-none"
+                    }
+                  >
+                    {tour.discount}% OFF
+                  </div>
+                </div>
+                <div className="tour-info">
+                  <span className="tour-card-header">
+                    <h2 className="title tour-card-title">{tour.name}</h2>
+                    <span className="tour-card-price title">
+                      ${Number(discountedPrice).toFixed(2)}{' '}
+                      {tour.discount > 0 && (
+                        <span className="original-price">${Number(tour.price).toFixed(2)}</span>
+                      )}
+                    </span>
+                  </span>
+                  <p>{tour.description}</p>
+                  <div className="tour-card-btn-section">
+                    <button className="tour-card-btn read-more">Read More</button>
+                    <button className="tour-card-btn book-now">Book Now</button>
+                  </div>
                 </div>
               </div>
-              <div className="tour-info">
-                <span className="tour-card-header">
-                  <h2 className="title tour-card-title">{tour.name}</h2>
-                  <span className="tour-card-price title">{tour.price}</span>
-                </span>
-                <p>{tour.description}</p>
-                <div className="tour-card-btn-section">
-                  <button className="tour-card-btn read-more">Read More</button>
-                  <button className="tour-card-btn book-now">Book Now</button>
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </Box>
@@ -333,41 +341,39 @@ const mockTours = [
     name: "Tour 1",
     src: "https://picsum.photos/id/11/2500/1667.jpg",
     description: "Description 1",
-    price: "$100",
-    discount: "",
+    price: 100,
+    discount: 0,
   },
   {
     id: 2,
     name: "Tour 2",
     src: "https://picsum.photos/id/16/2500/1667.jpg",
     description: "Description 2",
-    price: "$150",
-    discount: "15%",
+    price: 150,
+    discount: 15,
   },
   {
     id: 3,
     name: "Tour 3",
     src: "https://picsum.photos/id/12/2500/1667.jpg",
     description: "Description 3",
-    price: "$200",
-    discount: "20%",
+    price: 200,
+    discount: 20,
   },
   {
     id: 4,
     name: "Tour 4",
     src: "https://picsum.photos/id/15/2500/1667.jpg",
     description: "Description 4",
-    price: "$250",
-    discount: "25%",
+    price: 250,
+    discount: 25,
   },
   {
     id: 5,
     name: "Tour 5",
     src: "https://picsum.photos/id/28/4928/3264.jpg",
     description: "Description 5",
-    price: "$300",
-    discount: "30%",
+    price: 300,
+    discount: 30,
   },
 ];
-
-export default Homepage;

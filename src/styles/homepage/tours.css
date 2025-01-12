@@ -74,6 +74,12 @@
   color: #0f957a;
 }
 
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-left: 0.5rem;
+}
+
 .tour-card-btn {
   /* background-color: blue; */
   color: white;
@@ -107,7 +113,7 @@
   left: 0;
   width: 100%;
   /* height: 100%; */
-  background-color: #0f957a66;
+  background-color: #0f957ad8;
   color: rgb(255, 255, 255);
   font-size: var(--size-xl);
   text-align: center;

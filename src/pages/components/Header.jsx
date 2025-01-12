@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState} from 'react';
-import useIntersectionObserver from './useIntersectionObserver';
-import Loader from './Loader';
-import { Box } from '@mui/material';
-import DOMPurify from 'dompurify';
+import React, { useEffect, useRef, useState } from "react";
+import useIntersectionObserver from "./useIntersectionObserver";
+import Loader from "./Loader";
+import { Box } from "@mui/material";
+import DOMPurify from "dompurify";
+import "../../styles/components/header.css";
 
-const Header = () => {
+const Header = ({ title, description, background }) => {
   const [loading, setLoading] = useState(true);
-  const [background, setBackground] = useState({});
-  const [company, setCompany] = useState({});
   const isActive = false;
   const titleRef = useRef();
   const descRef = useRef();
@@ -27,22 +26,22 @@ const Header = () => {
   }
 
   return (
-    <Box
-      className="funfood__header header__section body"
-      sx={{
-        backgroundImage: ``,
-      }}
-    >
-      <div className="header__blank"></div>
-      <div className="funfood__header__container header__container__section container">
-        <h1 ref={titleRef} className="funfood__header__title header__title__section title-sm a-right">
-          {company.company_name}
+    <Box className="header__section body">
+      <div className="header__blank">
+        <img src={background} alt="background image" />
+      </div>
+      <div className="header__container__section container">
+        <h1
+          ref={titleRef}
+          className="header__title__section title-sm a-right"
+        >
+          {title}
         </h1>
         <div
           ref={descRef}
-          className="funfood__header__description header__description__section a-right"
+          className="header__description__section a-right"
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(company.company_desc),
+            __html: DOMPurify.sanitize(description),
           }}
         />
         <div>
@@ -58,6 +57,6 @@ const Header = () => {
       </div>
     </Box>
   );
-}
+};
 
-export default Header
+export default Header;
