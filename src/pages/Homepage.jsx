@@ -8,7 +8,7 @@ import "../styles/homepage/parallax.css";
 import "../styles/homepage/tours.css";
 import "../styles/homepage/customer.css";
 import "../styles/homepage/contact.css";
-import '../styles/components/chooseus.css'
+import "../styles/components/chooseus.css";
 import tripadvisorLogo from "/tripadvisor.svg";
 import useIntersectionObserver from "./components/useIntersectionObserver";
 import LabalSlider from "./components/LabalSlider";
@@ -40,16 +40,16 @@ export const Homepage = () => {
     <Box sx={{ overflowX: "hidden", width: "100vw" }}>
       <Slider sliderRef={sliderRef} />
       <Welcome sliderRef={sliderRef} />
-      <ChooseUs backgroundColor={"#003329"} titleColor={"#fff"}/>
+      <ChooseUs backgroundColor={"#003329"} titleColor={"#fff"} />
       <ToursSection />
       <CustomerReviews />
-      <Contact />
+      <ContactSection />
     </Box>
   );
 };
 
 //Contact section
-const Contact = () => {
+export const ContactSection = ({ background }) => {
   const titleRef = useRef(null);
   const infoRef = useRef(null);
 
@@ -58,6 +58,9 @@ const Contact = () => {
 
   return (
     <Box className="contact">
+      <div className="background__image">
+        <img src={background} alt="background image" />
+      </div>
       <div className="container">
         <div className="contact-content">
           <div ref={titleRef} className="contact-info a-up">
@@ -148,7 +151,8 @@ export const ToursSection = () => {
         </h1>
         <div ref={cardRef} className="tours-container a-up">
           {tours.map((tour) => {
-            const discountedPrice = tour.price - (tour.price * tour.discount) / 100;
+            const discountedPrice =
+              tour.price - (tour.price * tour.discount) / 100;
             return (
               <div key={tour.id} className="tour-card">
                 <div className="tour-top">
@@ -167,15 +171,19 @@ export const ToursSection = () => {
                   <span className="tour-card-header">
                     <h2 className="title tour-card-title">{tour.name}</h2>
                     <span className="tour-card-price title">
-                      ${Number(discountedPrice).toFixed(2)}{' '}
+                      ${Number(discountedPrice).toFixed(2)}{" "}
                       {tour.discount > 0 && (
-                        <span className="original-price">${Number(tour.price).toFixed(2)}</span>
+                        <span className="original-price">
+                          ${Number(tour.price).toFixed(2)}
+                        </span>
                       )}
                     </span>
                   </span>
                   <p>{tour.description}</p>
                   <div className="tour-card-btn-section">
-                    <button className="tour-card-btn read-more">Read More</button>
+                    <button className="tour-card-btn read-more">
+                      Read More
+                    </button>
                     <button className="tour-card-btn book-now">Book Now</button>
                   </div>
                 </div>
@@ -289,41 +297,59 @@ const Welcome = ({ sliderRef }) => {
 };
 
 //Choose us section
-export const ChooseUs = ({backgroundColor, titleColor}) => {
-  const titleRef = React.useRef(null)
-  const cardRef = React.useRef(null)
-  useIntersectionObserver(titleRef, { threshold: 0.5 })
-  useIntersectionObserver(cardRef, { threshold: 0.5 })
+export const ChooseUs = ({ backgroundColor, titleColor }) => {
+  const titleRef = React.useRef(null);
+  const cardRef = React.useRef(null);
+  useIntersectionObserver(titleRef, { threshold: 0.5 });
+  useIntersectionObserver(cardRef, { threshold: 0.5 });
 
   return (
-    <Box className='us-container' sx={{backgroundColor: backgroundColor}}>
+    <Box className="us-container" sx={{ backgroundColor: backgroundColor }}>
       <div className="container us">
-        <h1 ref={titleRef} className="title us-title a-up" style={{color: titleColor}}>Why choose us?</h1>
+        <h1
+          ref={titleRef}
+          className="title us-title a-up"
+          style={{ color: titleColor }}
+        >
+          Why choose us?
+        </h1>
         <div ref={cardRef} className="card-container a-up">
           <div className="us-card">
             <div className="us-logo">
-              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
+              <img
+                src="https://picsum.photos/id/28/4928/3264.jpg"
+                alt="card-logo"
+              />
             </div>
             <h2 className="card-title title">Card Title</h2>
             <p className="card-desc">Card Description</p>
           </div>
           <div className="us-card">
             <div className="us-logo">
-              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
+              <img
+                src="https://picsum.photos/id/28/4928/3264.jpg"
+                alt="card-logo"
+              />
             </div>
             <h2 className="card-title title">Card Title</h2>
             <p className="card-desc">Card Description</p>
           </div>
           <div className="us-card">
             <div className="us-logo">
-              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
+              <img
+                src="https://picsum.photos/id/28/4928/3264.jpg"
+                alt="card-logo"
+              />
             </div>
             <h2 className="card-title title">Card Title</h2>
             <p className="card-desc">Card Description</p>
           </div>
           <div className="us-card">
             <div className="us-logo">
-              <img src="https://picsum.photos/id/28/4928/3264.jpg" alt="card-logo" />
+              <img
+                src="https://picsum.photos/id/28/4928/3264.jpg"
+                alt="card-logo"
+              />
             </div>
             <h2 className="card-title title">Card Title</h2>
             <p className="card-desc">Card Description</p>
@@ -331,8 +357,8 @@ export const ChooseUs = ({backgroundColor, titleColor}) => {
         </div>
       </div>
     </Box>
-  )
-}
+  );
+};
 
 //Slider section
 const Slider = ({ sliderRef }) => {

@@ -4,7 +4,19 @@
   background-repeat: no-repeat;
   display: flex;
   background-position: center;
-  height: 50vh;
+  height: 40vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  z-index: 99;
+  /* border: 1px solid red; */
 }
 
 .header__blank {
@@ -12,9 +24,9 @@
   top: calc(0px + 60px);
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.44);
   /* border: 1px solid red; */
-  height: 50vh;
+  height: 40vh;
+  filter: brightness(0.7);
 }
 
 .header__blank img {
@@ -93,11 +105,11 @@
 /* @media (min-width: 600px) {} */
 
 /* md */
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
   .header__title__section {
       margin-top: 4em;
   }
-} */
+}
 
 /* lg */
 @media (min-width: 1024px) {

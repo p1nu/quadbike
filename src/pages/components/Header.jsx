@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import DOMPurify from "dompurify";
 import "../../styles/components/header.css";
 
-const Header = ({ title, description, background }) => {
+const Header = ({ title, description, background, content }) => {
   const isActive = false;
   const titleRef = useRef();
   const descRef = useRef();
@@ -17,31 +17,36 @@ const Header = ({ title, description, background }) => {
       <div className="header__blank">
         <img src={background} alt="background image" />
       </div>
-      <div className="header__container__section container">
-        <h1
-          ref={titleRef}
-          className="header__title__section title-sm a-up"
-        >
-          {title}
-        </h1>
-        <div
-          ref={descRef}
-          className="header__description__section a-up"
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(description),
-          }}
-        />
-        <div>
-          {isActive && (
-            <a
-              className="btn-trans funfood__header__btn header__btn__section"
-              href="#"
-            >
-              Visit Website
-            </a>
-          )}
+      {!content ? (
+        <div className="header__container__section container">
+          <h1 ref={titleRef} className="header__title__section title-sm a-up">
+            {title}
+          </h1>
+          <div
+            ref={descRef}
+            className="header__description__section a-up"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(description),
+            }}
+          />
+          <div>
+            {isActive && (
+              <a
+                className="btn-trans funfood__header__btn header__btn__section"
+                href="#"
+              >
+                Visit Website
+              </a>
+            )}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="header__content__section container">
+          <div className="header__content">
+            {content}
+          </div>
+        </div>
+      )}
     </Box>
   );
 };
