@@ -150,8 +150,10 @@ export const ToursSection = ({tourId}) => {
   };
 
   const handleNavigate = (name) => {
+    window.scrollTo(0, 0);
     const slug = generateSlug(name);
     navigate(`/tours/${slug}`);
+    window.location.reload();
   };
 
   const filteredTours = tourId ? tours.filter((tour) => tour.id !== tourId) : tours;
@@ -167,7 +169,7 @@ export const ToursSection = ({tourId}) => {
             const discountedPrice =
               tour.price - (tour.price * tour.discount) / 100;
             return (
-              <div key={tour.id} className="tour-card">
+              <div key={tour.id} className="tour-card" onClick={() => handleNavigate(tour.name)}>
                 <div className="tour-top">
                   <img src={tour.src} alt={tour.name} />
                   <div

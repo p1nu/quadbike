@@ -9,10 +9,14 @@ import ImageGallery from "react-image-gallery";
 import useIntersectionObserver from "./components/useIntersectionObserver";
 import "../styles/components/tour-info.css";
 import "react-image-gallery/styles/css/image-gallery.css";
+import Loader from "./components/Loader";
 
 const TourInfo = () => {
   const { slug } = useParams();
   const [tour, setTour] = useState(null);
+  const [viewCount, setViewCount] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [headerLoaded, setHeaderLoaded] = useState(false);
 
   useEffect(() => {
     const fetchTour = async () => {
@@ -21,6 +25,7 @@ const TourInfo = () => {
         const tourData = mockTours.find((tour) => tour.slug === slug);
         if (tourData) {
           setTour(tourData);
+          setViewCount((prevCount) => prevCount + 1); // Increment view count
         } else {
           console.log("Tour not found");
         }
@@ -31,15 +36,29 @@ const TourInfo = () => {
 
     fetchTour();
   }, [slug]);
+  
+  useEffect(() => {
+    // Simulate a loading delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // Adjust the delay to 1 second
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Show loader if loading is true
+  if (loading) {
+    return <Loader />;
+  }
 
   if (!tour) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
     <div>
-      <Header title={tour.name} background={tour.src} tour={tour.name} />
-      <ImageCarousel/>
+      <Header title={tour.name} background={tour.src} tour={tour.name}/>
+      <ImageCarousel tour={tour} viewCount={viewCount} />
       <TourInfoSection tour={tour} />
       <ToursSection tourId={tour.id} />
     </div>
@@ -47,7 +66,7 @@ const TourInfo = () => {
 };
 
 //image carousel section
-const ImageCarousel = () => {
+const ImageCarousel = ({ tour, viewCount }) => {
   const imageGalleryRef = useRef();
 
   useIntersectionObserver(imageGalleryRef, { threshold: 0.3 });
@@ -57,11 +76,23 @@ const ImageCarousel = () => {
   }));
 
   return (
-    <div className="image-carousel-section">
-      <div ref={imageGalleryRef} className="image-carousel container a-up">
-      <div className="image-gallery-wrapper">
-        <ImageGallery items={images} />
-      </div>
+    <div className="container">
+      <div className="image-carousel-container">
+        <div className="image-carousel-header">
+          <h2 className="image-carousel-title title">{tour.name}</h2>
+          <div className="view-count">Views: {viewCount}</div>
+        </div>
+        <div className="image-carousel-section">
+          <div ref={imageGalleryRef} className="image-carousel a-up">
+            <div className="image-gallery-wrapper">
+              <ImageGallery
+                items={images}
+                thumbnailPosition="right"
+                showPlayButton={false}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ const ImagesCard = ({image}) => {
 
   return (
     <>
-      <div ref={imageRef} key={image.id} className="gallery-item a-right" onClick={handleOpen}>
+      <div ref={imageRef} key={image.id} className="gallery-item a-up" onClick={handleOpen}>
         <img src={image.url} alt={image.title} className="gallery-image" />
       </div>
       <Modal
